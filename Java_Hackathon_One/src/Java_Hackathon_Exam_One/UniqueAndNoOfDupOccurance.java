@@ -4,6 +4,7 @@ package Java_Hackathon_Exam_One;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Map.Entry;
 
@@ -35,18 +36,23 @@ public class UniqueAndNoOfDupOccurance {
 
 		Scanner scan = new Scanner(System.in);
 
-		System.out.println("Enter the array length");
+		try {
+			System.out.println("Enter the array length");
 
-		int length = scan.nextInt();
+			int length = scan.nextInt();
 
-		ArrayList<Integer> myList = new ArrayList<Integer>();
+			ArrayList<Integer> myList = new ArrayList<Integer>();
 
-		System.out.println("Enter the array elements");
-		while(length >= 1) {
-			myList.add(scan.nextInt());
-			length--;
+			System.out.println("Enter the array elements");
+			while(length >= 1) {
+				myList.add(scan.nextInt());
+				length--;
+			}
+
+			uniqueAndNoOfDupOccurance(myList);
+
+		} catch (InputMismatchException e) {
+			System.out.println("Please enter integer value: " +e.getMessage());
 		}
-
-		uniqueAndNoOfDupOccurance(myList);
 	}
 }
